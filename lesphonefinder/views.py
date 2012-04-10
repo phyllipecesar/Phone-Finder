@@ -28,6 +28,7 @@ def validate(stra):
             continue
         return False
     return True
+
 def register(request):
     user = request.user
     c = {}
@@ -59,12 +60,12 @@ def register(request):
            pass
 
     return render_to_response('accounts/register.html', locals(), context_instance=RequestContext(request))
+
 def update(request):
     try:
-        lati = float(request.GET['lati'])
-        longi = float(request.GET['longi'])
-        print lati, longi
-        print Location.objects.all()
+        lati = float(request.GET['lati'].replace(",","."))
+        longi = float(request.GET['longi'].replace(",","."))
+        
         try:
             ob = Location.objects.all()[0]
         except:
