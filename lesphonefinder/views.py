@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from models import Location
+from lesphonefinder.models import Location
 
 def home(request):
     try:
@@ -16,8 +16,10 @@ def home(request):
 
 def update(request):
     try:
-        lati = float(request.POST['lati'])
-        longi = float(request.POST['longi'])
+        lati = float(request.GET['lati'])
+        longi = float(request.GET['longi'])
+        print lati, longi
+        print Location.objects.all()
         try:
             ob = Location.objects.all()[0]
         except:
@@ -26,6 +28,8 @@ def update(request):
         ob.lati = lati
         ob.longi = longi
         ob.save()
+    except:
+        pass
     return HttpResponse("")
 
             
