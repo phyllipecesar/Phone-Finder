@@ -25,11 +25,20 @@
     <div class="span-24">
       {% block base_toolbar %}
 	<h1 align="center">Phone Finder</h1>
-    {% endblock %}
+	{% if user.is_active %}
+	  <p> Hello, {{ user.username }} <br/>
+	  Seja bem vindo ao Phone Finder! Aqui você poderá ter total acesso ao seu celular remotamente!<br />
+	  Clique <a href="/logout?next=/">aqui</a> para deslogar.</p>
+
+	{% else %}
+	  <p>Você não está registrado<br>
+	  Clique <a href="/register/">aqui</a> para se registrar.<br />
+	  Se você já é cadastrado, clique <a href="/login">aqui</a> para logar.</p>
+	{% endif %}
+    {%endblock %}
     </div>
     <div class="span-24">
       {% block base_content %}
-	
 	<hr/>
 	<p> <b>BETA TEST</b><br>Sua localização:</p>
 	<div id="map_canvas"></div>

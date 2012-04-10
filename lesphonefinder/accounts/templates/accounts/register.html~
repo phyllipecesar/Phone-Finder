@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1> User Registration </h1>
+  {% if error %}
+    <div class="error">
+      {{ error }}
+    </div>
+  {% endif %}
+    
+  <form input="/register/" method="POST">
+    {{ form_reg.as_p }}
+    <input type="submit" value="Register">
+  </form>

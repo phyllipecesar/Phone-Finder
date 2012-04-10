@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block base_content %}
+  {% if user.is_active %}
+    <div class="error">Você já está logado.</div>
+    {% else %}
+      <h1> Login System</h1>
+      <form method="post" action="{% url django.contrib.auth.views.login %}">
+	{% csrf_token %}
+	Username: <input type="text" name="username"><br />
+	Password: <input type="password" name="password"> <br />
+	<input type="submit" value="Login" />
+	<input type="hidden" name="next" value="{{ next }}" />
+      </form>
+    {%endif%}
+{% endblock %}
+  
