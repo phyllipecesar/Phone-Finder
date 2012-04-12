@@ -2,20 +2,22 @@
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
   <title>{% block title %} PHONE FINDER {% endblock %}</title>
   <link rel="stylesheet" href="{{ STATIC_URL }}css/blueprint/screen.css" type="text/css" media="screen, projection"/>
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/blueprint/print.css" type="text/css" media="print"/>
-    <!--[if lt IE 8]>
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/blueprint/print.css" type="text/css" media="print"/>
+  <!--[if lt IE 8]>
     <link rel="stylesheet" href="{{ STATIC_URL }}css/blueprint/ie.css" type="text/css" media="screen, projection"/>
     <![endif-->
-
-    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
+  
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/base.css" type="text/css" media="screen, projection"/>
+  
+  <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
   <script type="text/javascript" src="{{STATIC_URL}}javascript/show_map.js"></script>
   {% block style %}
     <style type="text/css">
-      
       #map_canvas { height: 75% }
     </style>
-{% endblock %}
+  {% endblock %}
 </head>
+
 <body>
   <div class="container">
     <div class="span-24">
@@ -24,16 +26,15 @@
     </div>
     <div class="span-24">
       {% block base_toolbar %}
-	<h1 align="center">Phone Finder</h1>
+	<hr />
 	{% if user.is_active %}
-	  <p> Hello, {{ user.username }} <br/>
-	  Seja bem vindo ao Phone Finder! Aqui você poderá ter total acesso ao seu celular remotamente!<br />
-	  Clique <a href="/logout?next=/">aqui</a> para deslogar.</p>
-
+	  <div class="Constant_View">
+	    <p> Hello, {{ user.username }} <br/>
+	    Seja bem vindo ao Phone Finder! Aqui você poderá ter total acesso ao seu celular remotamente!<br />
+	    Clique <a href="/logout?next=/">aqui</a> para deslogar.</p>
+	  </div>
 	{% else %}
-	  <p>Você não está registrado<br>
-	  Clique <a href="/register/">aqui</a> para se registrar.<br />
-	  Se você já é cadastrado, clique <a href="/login">aqui</a> para logar.</p>
+	  {% include 'accounts/login.html' %}
 	{% endif %}
     {%endblock %}
     </div>

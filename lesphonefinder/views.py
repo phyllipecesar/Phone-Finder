@@ -6,7 +6,21 @@ from lesphonefinder.models import Location
 from django.contrib.auth.models import User
 from django.core.context_processors import csrf
 
+lang_message = { 
+    'PORTUGUESE': {
+        'INFO_PHONE_FINDER':u"""Phone Finder é um aplicativo que permite o usuário saber a localização do seu celular via web a partir do GPS do seu aparelho.<br />
+Além disso o aplicativo possibilita acesso remoto ao seu celular, isto é, quando você não estiver encontrando seu celular e o mesmo estiver no silencioso, você não precisa perder seu tempo procurando pela sua residência. Você pode ativar pelo nosso website que o seu telefone toque algum tipo de alarme, facilitando a busca do aparelho!<br />
+Além do mais, se o seu telefone foi roubado você pode ativar o modo de tirar fotos automaticamente, isto é, a cada 10 minutos o aparelho irá tirar uma foto e enviar para nosso website, assim você pode tentar reconhecer o local, ou até mesmo os suspeitos."""
+        },
+    'ENGLISH': {
+        'INFO_PHONE_FINDER':u"""
+"""
+        }
+}
+
+    
 def home(request):
+
     try:
         ob = Location.objects.all()[0]
         CUR_LATI = ob.lati

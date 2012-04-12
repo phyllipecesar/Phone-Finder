@@ -1,0 +1,11 @@
+.Constant_View {
+    background-color: #3b5998;
+    border: 2px solid transparent;
+    color:white;
+    border-radius: 15px;
+    padding: 10px 20px 25px 20px;
+}
+.Constant_View h1 {
+    color: white;
+    font-style: bold;
+}

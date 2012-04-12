@@ -1,16 +1,31 @@
-{% extends 'base.html' %}
-{% block base_content %}
-  {% if user.is_active %}
-    <div class="error">Você já está logado.</div>
-    {% else %}
-      <h1> Login System</h1>
+{% if user.is_active %}
+  <div class="error">Você já está logado.</div>
+{% else %}
+  <div class="span-24">
+    <div class="Constant_View">
+      <div class="span-12">
+	<h1>Phone Finder</h1>
+      </div>
       <form method="post" action="{% url django.contrib.auth.views.login %}">
 	{% csrf_token %}
-	Username: <input type="text" name="username"><br />
-	Password: <input type="password" name="password"> <br />
-	<input type="submit" value="Login" />
-	<input type="hidden" name="next" value="{{ next }}" />
-      </form>
-    {%endif%}
-{% endblock %}
-  
+	<div class="span-4">
+	  Username<br />
+	  <input type="text" name="username">
+	  </div>
+	  <div class="span-4">
+	    Password<br>
+	    <input type="password" name="password">
+	    </div>
+	    <div class="span-1">
+	      <br />
+	      <input type="submit" value="Login">
+	    </div>
+	      <hr />
+	      <input type="hidden" name="next" value="{{ next }}" />
+	    
+	  </form>
+	</div>
+     
+    </div>
+  {%endif%}
+    
