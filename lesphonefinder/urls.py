@@ -10,7 +10,7 @@ urlpatterns = patterns('',
                            url(r'^update/$', 'lesphonefinder.views.update'),
                            url(r'^register/$', 'lesphonefinder.views.register'),
                            url(r'^logout/$', 'django.contrib.auth.views.logout'),
-                           url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'accounts/login.html'}),
+                           
     # url(r'^$', 'lesphonefinder.views.home', name='home'),
     # url(r'^lesphonefinder/', include('lesphonefinder.foo.urls')),
 

@@ -5,7 +5,7 @@ from django.template import RequestContext
 from lesphonefinder.models import Location
 from django.contrib.auth.models import User
 from django.core.context_processors import csrf
-
+from django.contrib.auth import login, authenticate
 lang_message = { 
     'PORTUGUESE': {
         'INFO_PHONE_FINDER':u"""Phone Finder é um aplicativo que permite o usuário saber a localização do seu celular via web a partir do GPS do seu aparelho.<br />
@@ -37,11 +37,12 @@ def home(request):
                 if user.is_active:
                     login(request, user)
             else:
-                login_error = lang_message['PORTUGUESE']['LOGIN_ERROR']
+                if request.POST.has_key('username') or request.POST.has_key('password'):
+                    login_error = lang_message['PORTUGUESE']['LOGIN_ERROR_BLANK']
+                else:
+                    login_error = lang_message['PORTUGUESE']['LOGIN_ERROR']
         except:
-            if request.POST.has_key('username') or request.POST.has_key('password'):
-                login_error = lang_message['PORTUGUESE']['LOGIN_ERROR_BLANK']
-            
+            pass
                 
     try:
         ob = Location.objects.all()[0]
