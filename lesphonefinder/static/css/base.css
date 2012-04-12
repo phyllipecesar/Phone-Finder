@@ -1,11 +1,18 @@
-.Constant_View {
+.Top_View {
     background-color: #3b5998;
     border: 2px solid transparent;
     color:white;
     border-radius: 15px;
-    padding: 10px 20px 25px 20px;
+    padding: 10px 30px 45px 20px;
 }
-.Constant_View h1 {
+.Top_View p {
+    color: white;
+}
+.Top_View hr {
+   
+    margin: 0px 0px 0px 0px;
+}
+.Top_View h1 {
     color: white;
     font-style: bold;
 }

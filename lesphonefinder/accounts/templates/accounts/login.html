@@ -2,15 +2,15 @@
   <div class="error">Você já está logado.</div>
 {% else %}
   <div class="span-24">
-    <div class="Constant_View">
+    <div class="Top_View">
       <div class="span-12">
 	<h1>Phone Finder</h1>
       </div>
-      <form method="post" action="{% url django.contrib.auth.views.login %}">
+      <form method="post" action="/">
 	{% csrf_token %}
 	<div class="span-4">
 	  Username<br />
-	  <input type="text" name="username">
+	  <input type="text" name="username" value="{{form_username}}">
 	  </div>
 	  <div class="span-4">
 	    Password<br>
@@ -19,13 +19,23 @@
 	    <div class="span-1">
 	      <br />
 	      <input type="submit" value="Login">
-	    </div>
+	      </div>
 	      <hr />
-	      <input type="hidden" name="next" value="{{ next }}" />
+	      <input type="hidden" name="" value="" />
+	    </form>
+	    <div class="span-6 prepend-12 append-3">
+	      
+	      {% if login_error %}
+		
+		<div class="error"  style="margin-top: 10px; padding: 3px 1px 3px 0px">
+		  {{ login_error }}
+
+	    {% endif %}
 	    
-	  </form>
+	  </div>
+	 
 	</div>
-     
+	
     </div>
   {%endif%}
     
