@@ -6,7 +6,8 @@ function initialize(map_id, lat, longi) {
     
     var myOptions = {
 	zoom: 8,
-	mapTypeId: google.maps.MapTypeId.ROADMAP
+	mapTypeId: google.maps.MapTypeId.ROADMAP,
+	center: latlng
     };
     map = new google.maps.Map(document.getElementById(map_id),
 				  myOptions);
