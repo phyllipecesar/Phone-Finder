@@ -6,9 +6,11 @@ from lesphonefinder.settings import STATIC_PREFIX
 
 urlpatterns = patterns('',
     # Examples:
-                           url(r'^'+STATIC_PREFIX[1:], include('lesphonefinder.urls_main')), 
-
-                           
+                           url(r'^$', 'lesphonefinder.views.home'),
+                           url(r'^update/$', 'lesphonefinder.views.update'),
+                           url(r'^logout/$', 'lesphonefinder.views.logout_view'),
+                           url(r'^reg_mobile/$', 'lesphonefinder.accounts.views.register_mobile'),
+                           url(r'^view_map/(?P<mobile_id>\d+)/$', 'lesphonefinder.views.view_mobile_map'),
     # url(r'^$', 'lesphonefinder.views.home', name='home'),
     # url(r'^lesphonefinder/', include('lesphonefinder.foo.urls')),
 

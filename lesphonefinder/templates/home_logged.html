@@ -1,0 +1,35 @@
+{% load i18n %}
+
+<div class="span-4 append-9">
+    <div class="User_Option">
+      <h3> {% trans "Download NOW!" %}</h3>
+      <img src="{{ STATIC_URL }}android-download.jpg" alt="Download app" height="100" width="100" />
+      <br />
+      <br />
+    </div>
+  </div>
+  
+  <div class="span-4 append-1">
+    <div class="User_Option">
+      <h3> {% trans "Personal Data" %}</h3>
+      <img src="{{ STATIC_URL }}Config-Tools.jpg" alt="Personal Data" height="100" width="100" />
+      <br />
+      <br />
+    </div>
+  </div>
+  
+
+  <div class="span-4 append-1">
+    <div class="User_Option">
+      <h3> {% trans "Your mobiles" %}</h3>
+      <img src="{{ STATIC_URL }}mobile.jpg" alt="Mobile Device" height="100" width="100" />
+      <br />
+      <br />
+    </div>
+  </div>
+
+
+
+  <script>
+    $(".User_Option").button();
+  </script>

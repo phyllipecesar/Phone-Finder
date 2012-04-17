@@ -1,0 +1,109 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-04-13 20:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Phyllipe Cesar Medeiros phyllipe@gmail.com\n"
+"Language-Team: Phyllipe\n"
+"Language: Portuguese\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Conten-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+
+#: settings.py:39
+msgid "Portuguese"
+msgstr "Português"
+
+#: settings.py:40
+msgid "English"
+msgstr "Inglês"
+
+#: views.py:49
+msgid ""
+"Phone Finder is an app that allows you to track your cellphone through its "
+"GPS feature. \n"
+"Moreover, you can via this app remotely control your cellphone, say, if you "
+"can't find it and it is in the silent mode, \n"
+"there is no need to waste time trying to find it in every corner of your "
+"home, just use Phone Finder to activate an alarm in the device to ease your "
+"search!\n"
+"Wait, there's more! If your cellphone is stolen, you can use Phone Finder to "
+"make your cellphone take pictures every 10 minutes\n"
+" and store it in our database, so that you can help the police catch the "
+"thieves red-handed!"
+msgstr ""
+"Phone Finder é um aplicativo que permite o usuário saber a localização do "
+"seu celular via web a partir do GPS do seu aparelho. Além disso o aplicativo "
+"possibilita acesso remoto ao seu celular, isto é, quando você não estiver "
+"encontrando seu celular e o mesmo estiver no silencioso, você não precisa "
+"perder seu tempo procurando pela sua residência. Você pode ativar pelo nosso "
+"website que o seu telefone toque algum tipo de alarme, facilitando a busca "
+"do aparelho! Além do mais, se o seu telefone foi roubado você pode ativar o "
+"modo de tirar fotos automaticamente, isto é, a cada 10 minutos o aparelho "
+"irá tirar uma foto e enviar para nosso website, assim você pode tentar "
+"reconhecer o local, ou até mesmo os suspeitos."
+
+#: views.py:84
+msgid "Invalid captcha."
+msgstr "Captcha inválido."
+
+#: views.py:100
+msgid "Username or password can not be blank."
+msgstr "Usuário ou senha não podem ser vazios."
+
+#: views.py:102
+msgid "Username and password mismatches."
+msgstr "Usuário ou senha incorreta."
+
+#: accounts/forms.py:11
+msgid "First Name"
+msgstr "Primeiro Nome"
+
+#: accounts/forms.py:12
+msgid "Last Name"
+msgstr "Último Nome"
+
+#: accounts/templates/accounts/banner_logged.html:8
+msgid "Welcome"
+msgstr "Bem vindo"
+
+#: accounts/templates/accounts/banner_logged.html:18
+#: accounts/templates/accounts/banner_login.html:32
+msgid "The smartest way to find your phone."
+msgstr "O jeito mais inteligente de encontrar seu telefone."
+
+#: accounts/templates/accounts/banner_login.html:13
+msgid "Username"
+msgstr "Usuário"
+
+#: accounts/templates/accounts/banner_login.html:17
+msgid "Password"
+msgstr "Senha"
+
+#: accounts/templates/accounts/register.html:10
+msgid "Registration"
+msgstr "Registro"
+
+#: accounts/templates/accounts/register.html:58
+msgid "Register"
+msgstr "Registrar"
+
+#: templates/home_logged.html:5
+msgid "Download NOW!"
+msgstr "Baixe AGORA!"
+
+#: templates/home_logged.html:14
+msgid "Personal Data"
+msgstr "Dados Pessoais"
+
+#: templates/home_logged.html:24
+msgid "Your mobiles"
+msgstr "Seus Aparelhos"

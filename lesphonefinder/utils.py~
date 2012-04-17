@@ -1,0 +1,9 @@
+def generate_random_id(current_id):
+    new_id = ""
+    possibilities = [ chr(i) for i in range(ord('a'), ord('z') ) ] + [ chr(i) for i in range(ord('A'), ord('Z')+1) ] + [ chr(i) for i in range(ord('0'), ord('9') + 1) ]
+    len_max = 7
+    from random import randint
+    for i in xrange(len_max):
+
+        new_id += possibilities[randint(0, len(possibilities)-1)]
+    return new_id + str(current_id)

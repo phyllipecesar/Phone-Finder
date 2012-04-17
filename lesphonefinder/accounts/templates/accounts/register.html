@@ -1,17 +1,63 @@
-{% extends 'base.html' %}
+{% load i18n %}
 
-{% block base_content %}
-  <h1> User Registration </h1>
-  {% if error %}
-    <div class="error">
+{% if error %}
+  <div class="error">
       {{ error }}
+  </div>
+{% endif %}
+<div class="Top_view">
+
+  <h3 align="center">{% trans "Registration" %}</h3>
+<form input="{{ STATIC_PREFIX }}" method="POST">
+  {% csrf_token %}
+  {% for field in registration_form.visible_fields %}
+    {% if forloop.first %}
+      {% for hidden in form.hidden_fields %}
+        {{ hidden }}
+      {% endfor %}
+    {% endif %}
+    <div class="span-11">
+     
+
+      
+      <div class="span-2">
+	<p align="right">
+	  {{ field.label_tag }}:</p></div><div class="span-4"> {{ field }} </div>
+	  {% if field.errors %}
+	    <div class="span-6 append-4">
+	    <div class="error" style="padding-bottom:0px">{{ field.errors }}</div> <br /></div>
+	{% endif %}
     </div>
-  {% endif %}
+    
+            
+  {% endfor %}
   
-  <form input="/register/" method="POST">
-    {% csrf_token %}
-    Username: <input type="text" name="username"><br/>
-    Password: <input type="password" name="password"><br/>
-    <input type="submit" value="Register">
+      {% if reg_captcha %}
+	<div class="span-11">
+	<div class="span-3 prepend-2 append-4">
+	<div class="error" style="apadding-bottom:0px; padding-right:4px">
+	  {{ reg_captcha }}
+	  </div>
+	  </div>
+	  </div>
+	{% endif %}
+	<script type="text/javascript"
+       		src="http://www.google.com/recaptcha/api/challenge?k=6LeqdM4SAAAAAOTLd3SK4Wnl2lHgVEs1u2NI897s">
+    		</script>
+		<noscript>
+		  <iframe src="http://www.google.com/recaptcha/api/noscript?k=6LeqdM4SAAAAAOTLd3SK4Wnl2lHgVEs1u2NI897s">
+		    height="300" width="500" frameborder="0"></iframe><br>
+		    <textarea name="recaptcha_challenge_field" rows="3" cols="40">
+	       </textarea>
+	       <input type="hidden" name="recaptcha_response_field"
+		      value="manual_challenge">
+	    </noscript>
+	    <p>
+            
+  <div class="prepend-3">
+    <input id="subRegister" type="submit" value="{% trans 'Register' %}"></div>
   </form>
-{% endblock %}
+  <script>
+    $("#subRegister").button();
+  </script>
+</div>

@@ -1,6 +1,25 @@
+body {
+    
+    background-image: url('../world-map-background.jpg');
+    background-repeat: repeat;
+}
+.User_Option {
+    
+}
+
+.User_Option h3 {
+    color: white;
+    font-style: bold;
+}
+.User_Option img {
+    border: 3px solid;
+    
+    border-color: black;
+}
 .Top_View {
-    background-color: #3b5998;
-    border: 2px solid transparent;
+    background-color: #165092;
+    border: 3px solid;
+    border-color: black;
     color:white;
     border-radius: 15px;
     padding: 10px 30px 45px 20px;
@@ -8,11 +27,25 @@
 .Top_View p {
     color: white;
 }
+.Top_View .bold_left {
+    font-size: 13px;
+}
 .Top_View hr {
-   
+    color: white;
+    padding: 0.8px;
     margin: 0px 0px 0px 0px;
 }
 .Top_View h1 {
+    color: white;
+    font-style: bold;
+}
+
+.Top_View h3 {
+    color: white;
+    font-style: bold;
+}
+
+.Top_View h4 {
     color: white;
     font-style: bold;
 }

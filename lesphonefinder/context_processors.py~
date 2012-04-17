@@ -1,0 +1,2 @@
+def static_prefix(request):
+    return { 'STATIC_PREFIX': '' }

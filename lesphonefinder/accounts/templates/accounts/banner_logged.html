@@ -1,0 +1,24 @@
+{% load i18n %}
+  <div class="span-24">
+    <div class="Top_View">
+      <div class="span-12">
+	<h1>Phone Finder</h1>
+      </div>
+      <div class="span-8">
+	<h3>{% trans "Welcome" %}, {{ user.get_full_name }} </h3>
+	<div class="prepend-5">
+	<a id="logoutBtn" href="{{STATIC_PREFIX}}logout">Logout</a>
+	</div>
+	<script>
+	  $("#logoutBtn").button();
+	</script>
+	
+      </div>
+      <hr />
+      <h3>{% trans "The smartest way to find your phone." %}</h3>
+	 
+	</div>
+	
+    </div>
+    
+    

@@ -1,0 +1,29 @@
+{% load i18n %}
+<div class="span-24">
+  
+  <div class="span-24">
+    <p><b>Name</b>: {{ mobile.name }}<br />
+    <b>Description</b>: {{ mobile.description }}<br />
+    </p>
+  </div>
+  
+  <div class="span-24">
+    <hr />
+    <div id="map_canvas" style="border: solid; border-color:black"></div>
+   
+    <script>
+      initialize("map_canvas", 0, 0);
+    </script>
+      {% for location in locations %}
+	{{location.get_description|safe}}
+	<script> add_marker({{location.lati}}, {{location.longi}}, "{{ location.get_description|escapejs }}");</script>
+      {% endfor %}
+
+
+
+  </div>
+
+</div>
+
+
+  
