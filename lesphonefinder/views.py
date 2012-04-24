@@ -11,7 +11,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.sites.models import Site
 from lesphonefinder.accounts.forms import UserCreateForm 
 from django.utils.translation import ugettext
-from lesphonefinder.utils import validate_captcha, receive_activity, update_location
+from lesphonefinder.utils import validate_captcha, receive_activity, update_location, get_details_from_mobile
 from lesphonefinder.settings import STATIC_PREFIX
 from threading import *
 
@@ -157,7 +157,9 @@ def get_activities(request):
     ret_str = ""
     try:
         identifier, username, mobile, user = get_details_from_mobile(request)
+        
         activities = Activity.objects.filter(mobile=mobile)
+        l = []
         for activity in activities:
             l.append(str(activity.activity))
         ret_str = "-".join(l)
@@ -167,19 +169,22 @@ def get_activities(request):
     return HttpResponse(ret_str)
 
 def create_new_activity(request, mobile_id, activity):
-    if activity not in ACTIVITIES:
-        raise Http404
-    mobile = get_object_or_404(pk=mobile_id)
-    user = request.user
+    activity = int(activity)
 
+    if activity not in ACTIVITIES:
+        raise Http404("Activity does not exist.")
+
+    mobile = get_object_or_404(Mobile, pk=mobile_id)
+    user = request.user
+    
     if mobile.user != user:
-        raise Http404
+        raise Http404("User does not match.")
     
     activities = Activity.objects.filter(mobile=mobile, activity=activity)
     if (len(activities) != 0):
         #Already exists
         return HttpResponse("")
-    Activity.object.create(mobile=mobile, activity=activity)
+    Activity.objects.create(mobile=mobile, activity=activity)
     return HttpResponse("")
     
 

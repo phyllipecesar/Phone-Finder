@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from lesphonefinder.accounts.models import Mobile
-from lesphonefinder.models import Location, ACTIVITIES, MAXIMUM_LEN_LOCATIONS
+from lesphonefinder.models import Location, Activity, ACTIVITIES, MAXIMUM_LEN_LOCATIONS
 from django.core.context_processors import csrf
 from django.shortcuts import render_to_response
 from django.http import HttpResponse, Http404
@@ -95,6 +95,7 @@ def receive_activity(request):
     try:
         identifier, username, mobile, user = get_details_from_mobile(request)
         activity = int(request.GET['activity'])
+        print identifier, activity
         if activity in ACTIVITIES:
             activity = Activity.objects.filter(activity=activity, mobile=mobile)[0]
             activity.delete()
