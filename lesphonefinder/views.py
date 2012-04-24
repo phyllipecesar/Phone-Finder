@@ -46,6 +46,8 @@ Basically home, is just the home, with login option and register.
 """    
 
 def home(request):
+    c = {}
+    c.update(csrf(request))
     danilo_locations = Location.objects.filter(mobile__user__username='danilopmn')
 
     intro_message = ugettext("""Phone Finder is an app that allows you to track your cellphone through its GPS feature. 
@@ -190,9 +192,11 @@ def create_new_activity(request, mobile_id, activity):
 
 def upload_photo(request):
     try:
-        identifier = request.GET['identifier']
-        username = request.GET['username']
-        photo_string = request.GET['photo']
+        c = {}
+        c.update(csrf(request))
+        identifier = request.POS['identifier']
+        username = request.POST['username']
+        photo_string = request.POST['photo']
 
         mobile = Mobile.objects.filter(identifier=identifier)[0]
         user = User.objects.filter(username=username)[0]
