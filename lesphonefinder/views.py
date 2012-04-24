@@ -153,7 +153,21 @@ def update_received_activity(request):
     ThreadUsingRequest(request, receive_activity).start()
     return HttpResponse("")
 
-def creates_new_activity(request, mobile_id, activity):
+def get_activities(request):
+    ret_str = ""
+    try:
+        identifier, username, mobile, user = get_details_from_mobile(request)
+        activity = int(request.GET['activity'])
+        activities = Activity.objects.filter(mobile=mobile, activity=activity)
+        for activity in activities:
+            l.append(str(activity.activity))
+        ret_str = "-".join(l)
+    except:
+        pass
+
+    return HttpResponse(ret_str)
+
+def create_new_activity(request, mobile_id, activity):
     if activity not in ACTIVITIES:
         raise Http404
     mobile = get_object_or_404(pk=mobile_id)

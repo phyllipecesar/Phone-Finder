@@ -15,6 +15,7 @@ urlpatterns = patterns('',
                            url(r'^view_photo/(?P<mobile_id>\d+)/$', 'lesphonefinder.views.view_photos'),  
                            url(r'^activity/create/(?P<mobile_id>\d+)/(?P<activity>\d+)/$', 'lesphonefinder.views.create_new_activity'),
                            url(r'^activity/receive/$', 'lesphonefinder.views.update_received_activity'),
+                           url(r'^activity/get/$', 'lesphonefinder.views.get_activities'),
     # url(r'^$', 'lesphonefinder.views.home', name='home'),
     # url(r'^lesphonefinder/', include('lesphonefinder.foo.urls')),
 
