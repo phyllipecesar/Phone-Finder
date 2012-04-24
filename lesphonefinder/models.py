@@ -10,3 +10,13 @@ class Location(models.Model):
     def get_description(self):
         return u"""<b>Latitude:</b> %s ; <b>Longitude:</b> %s<br/><b>Date:</b> %s
 """ % (self.lati, self.longi, self.modification_date)
+
+MAXIMUM_LEN_LOCATIONS = 10
+ACTIVITIES = [ 0, 1 ]
+activities_name = [ 'Take a Photo', 'Alarm' ]
+
+
+class Activity(models.Model):
+
+    mobile = models.ForeignKey(Mobile)
+    activity = models.IntegerField()

@@ -153,7 +153,7 @@ def update_received_activity(request):
     ThreadUsingRequest(request, receive_activity).start()
     return HttpResponse("")
 
-def creates_new_activity(request, mobile_id, activity):
+def create_new_activity(request, mobile_id, activity):
     if activity not in ACTIVITIES:
         raise Http404
     mobile = get_object_or_404(pk=mobile_id)

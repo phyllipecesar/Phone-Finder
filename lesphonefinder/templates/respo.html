@@ -1,0 +1,6 @@
+<html>
+{% for p in photos %}
+	<img
+src="data:image/jpg;base64,"+{{ p.photo_str }} alt="British Blog Directory" width="80" height="15" />
+      {% endfor %}
+</html>

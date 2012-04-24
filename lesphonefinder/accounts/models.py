@@ -3,11 +3,17 @@ from django.contrib.auth.models import User
 from django.forms import ModelForm
 # Create your models here.
 
-
+   
 class Mobile(models.Model):
     user = models.ForeignKey(User)
     name = models.CharField("phone's name", max_length=30)
     description = models.CharField("phone's description", max_length=30)
     identifier = models.CharField("phone's identifier", max_length=30)
+
+class Photo(models.Model):
+    mobile = models.ForeignKey(Mobile)
+    photo_str = models.TextField("Photos base 64 string")
+ 
+
 
     
