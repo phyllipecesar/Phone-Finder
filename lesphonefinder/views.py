@@ -157,8 +157,7 @@ def get_activities(request):
     ret_str = ""
     try:
         identifier, username, mobile, user = get_details_from_mobile(request)
-        activity = int(request.GET['activity'])
-        activities = Activity.objects.filter(mobile=mobile, activity=activity)
+        activities = Activity.objects.filter(mobile=mobile)
         for activity in activities:
             l.append(str(activity.activity))
         ret_str = "-".join(l)
