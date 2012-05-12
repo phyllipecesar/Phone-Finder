@@ -183,11 +183,15 @@ def create_new_activity(request, mobile_id, activity):
         raise Http404("User does not match.")
     
     activities = Activity.objects.filter(mobile=mobile, activity=activity)
+    
     if (len(activities) != 0):
         #Already exists
-        return HttpResponse("")
+        activities = Activity.objects.filter(mobile=mobile)
+        return render_to_response('mobile.html', locals(), context_instance=RequestContext(request))
+
     Activity.objects.create(mobile=mobile, activity=activity)
-    return HttpResponse("")
+    activities = Activity.objects.filter(mobile=mobile)
+    return render_to_response('mobile.html', locals(), context_instance=RequestContext(request))
     
 
 def upload_photo(request):
@@ -216,11 +220,31 @@ def upload_photo(request):
 def view_photos(request, mobile_id):
     mobile = get_object_or_404(Mobile, pk=mobile_id)
     user = request.user
-    """if mobile.user != user:
-        raise Http404("User is not the same.")
+
     """
+    if mobile.user != user:
+       raise Http404("User is not the same.")
+    """
+
     photos = Photo.objects.filter(mobile=mobile)
     
     return render_to_response('respo.html', locals(), context_instance=RequestContext(request))
 
-            
+
+def mobile_detail(request, mobile_id):
+    user = request.user
+    mobile = get_object_or_404(Mobile, pk=mobile_id)
+    if mobile.user != user:
+        raise Http404("User is not the same.")
+    activities = Activity.objects.filter(mobile=mobile)
+    return render_to_response('mobile.html', locals(), context_instance=RequestContext(request))
+
+def list_mobiles(request):
+    user = request.user
+    if not user.is_active:
+        raise Http404("User is not logged in.")
+
+    mobiles = Mobile.objects.filter(user=user)
+    
+    return render_to_response('list_mobiles.html', locals(), context_instance=RequestContext(request))
+

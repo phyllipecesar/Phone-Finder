@@ -3,6 +3,7 @@
     <div class="Top_View">
       <div class="span-12">
 	<a href="{{ STATIC_PREFIX }}"><h1>Phone Finder</h1></a>
+ 
       </div>
       <div class="span-8">
 	<h3>{% trans "Welcome" %}, {{ user.get_full_name }} </h3>

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+
+{% block base_content %}
+  <h1 align="center"> {% trans "Mobile Details" %}</h1>
+  <div class="span-7">
+    <b>{% trans "Name" %}:</b> {{ mobile.name }} <br />
+    <b>{% trans "Description" %}:</b> {{mobile.description }} <br />
+  </div>
+  <div class="span-4">
+    <a href="{{STATIC_PREFIX}}view_map/{{mobile.id}}" id="btnmapview">{% trans "View Map" %}</a>
+  </div>
+
+  <div class="span-4">
+    <a href="{{STATIC_PREFIX}}activity/create/{{mobile.id}}/1/" id="btnplay">{% trans "Play Sound" %}</a>
+  </div>
+
+  <div class="span-4">
+    <a href="{{STATIC_PREFIX}}activity/create/{{mobile.id}}/0/" id="btnphoto">{% trans "Take a Photo" %}</a>
+  </div>
+  <hr />
+  <div class="span-28">
+    
+      <h1 align="center">Current Activities</h1>
+      {% for activity in activities %}
+	<div class="span-7">
+	  <a href="" class="btn">{{ activity.description }}</a>
+	</div>
+	{% endfor %}
+  </div>
+
+
+  <script>
+    $("#btnmapview").button();
+    $(".btn").button();
+    $("#btnplay").button();
+    $("#btnphoto").button();
+
+  </script>
+{% endblock %}
+  

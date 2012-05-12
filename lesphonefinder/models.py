@@ -13,10 +13,12 @@ class Location(models.Model):
 
 MAXIMUM_LEN_LOCATIONS = 10
 ACTIVITIES = [ 0, 1 ]
-activities_name = [ 'Take a Photo', 'Alarm' ]
+activities_name = [ 'Take a Photo', 'Play a sound' ]
 
 
 class Activity(models.Model):
 
     mobile = models.ForeignKey(Mobile)
     activity = models.IntegerField()
+    def description(self):
+        return activities_name[self.activity]

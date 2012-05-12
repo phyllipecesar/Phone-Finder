@@ -12,7 +12,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'phonefinder',                      # Or path to database file if using sqlite3.
+        'NAME': 'phonefinder', #/srv/www/Phone-Finder/lesphonefinder/                     # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -33,15 +33,16 @@ TIME_ZONE = 'America/Recife'
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'pt-br'
 
-SITE_ID = 1
+SITE_ID = 3
 ugettext = lambda s: s
 LANGUAGES = (
-    ('pt-br', ugettext('Portuguese')),
+   # ('pt-br', ugettext('Portuguese')),
     ('en', ugettext('English')),
 )
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
 USE_I18N = True
+
 
 # If you set this to False, Django will not format dates, numbers and
 # calendars according to the current locale
@@ -64,8 +65,9 @@ STATIC_ROOT = ''
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = '/static/'
 STATIC_PREFIX = '/'
+STATIC_URL  = STATIC_PREFIX + 'static/'
+
 
 # URL prefix for admin static files -- CSS, JavaScript and images.
 # Make sure to use a trailing slash.
@@ -74,7 +76,7 @@ ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    'static/',
+    '/srv/www/Phone-Finder/lesphonefinder/static/',
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -129,14 +131,15 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
+    'lesphonefinder',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accounts',
-    'lesphonefinder',
+    'lesphonefinder.accounts',
+
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -166,3 +169,10 @@ LOGGING = {
         },
     }
 }
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
+SESSION_COOKIE_NAME = 'phonefinder'
+#SESSION_COOKIE_DOMAIN = '.ufcgjudge.com'
+#SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_PATH = '/phone-finder/'
+CSRF_COOKIE_PATH = '/phone-finder/'

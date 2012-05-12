@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+
+{% block base_content %}
+  <h1 align="center"> {% trans "Mobile Details" %}</h1>
+  <div class="span-7">
+    <b>{% trans "Name" %}:</b> {{ mobile.name }} <br />
+    <b>{% trans "Description" %}:</b> {{mobile.description }} <br />
+  </div>
+  <div class="span-7">
+    <a href="{{STATIC_PREFIX}}view_map/{{mobile.id}}" id="btnmapview">View Map</a>
+  </div>
+  <script>
+    $("#btnmapview").button();
+  </script>
+{% endblock %}
+  

@@ -20,12 +20,14 @@
   
 
   <div class="span-4 append-1">
-    <div class="User_Option">
-      <h3> {% trans "Your mobiles" %}</h3>
-      <img src="{{ STATIC_URL }}mobile.jpg" alt="Mobile Device" height="100" width="100" />
-      <br />
-      <br />
-    </div>
+    <a href="{{STATIC_PREFIX}}mobiles">
+      <div class="User_Option">
+	<h3> {% trans "Your mobiles" %}</h3>
+	<img src="{{ STATIC_URL }}mobile.jpg" alt="Mobile Device" height="100" width="100" />
+	<br />
+	<br />
+      </div>
+    </a>
   </div>
 
 
